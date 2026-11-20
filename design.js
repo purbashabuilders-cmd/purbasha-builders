@@ -1,0 +1,25 @@
+(() => {
+  'use strict';
+  const root=document.documentElement, theme=document.querySelector('.theme-switch');
+  function setTheme(value){root.dataset.theme=value;theme.setAttribute('aria-label',`Switch to ${value==='dark'?'light':'dark'} theme`);try{localStorage.setItem('purbasha-theme-v2',value);}catch{}}
+  try { setTheme(localStorage.getItem('purbasha-theme-v2')||'light'); } catch { setTheme('light'); }
+  theme.addEventListener('click',()=>setTheme(root.dataset.theme==='dark'?'light':'dark'));
+  const menu=document.querySelector('.mobile-menu'),toggle=document.querySelector('.menu-toggle');
+  function closeMenu(){menu.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');}
+  toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';menu.hidden=!open;toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){closeMenu();toggle.focus();}});
+  matchMedia('(min-width:801px)').addEventListener('change',e=>{if(e.matches)closeMenu();});
+  const homes={one:{title:'The 1 BHK residence',kicker:'For a first home of your own',description:'A comfortable starting point, with distinct living, sleeping and kitchen areas. Explore the concept, then request the actual project drawing.',config:'1 bedroom',area:'684 sq ft',alt:'Illustrative one-bedroom apartment layout; not an approved project drawing'},two:{title:'The 2 BHK residence',kicker:'Room for life to grow',description:'Two bedrooms open up more possibilities: a family room, a workspace, or a place for guests. Use this illustrative layout to begin the conversation.',config:'2 bedrooms',area:'868 sq ft',alt:'Illustrative two-bedroom apartment layout; not an approved project drawing'},three:{title:'The 3 BHK residence',kicker:'A little more room for everyone',description:'Space for a larger household, visitors, or a room that is yours to define. Ask our team about the actual layout, orientation and current availability.',config:'3 bedrooms',area:'1,212 sq ft',alt:'Illustrative three-bedroom apartment layout; not an approved project drawing'},penthouse:{title:'The penthouse residence',kicker:'A home with a little more sky',description:'Explore a top-level residence with a separately listed terrace area. Confirm terrace rights, access, specifications and the approved drawing with our team.',config:'Penthouse + terrace',area:'1,209 sq ft + 868 sq ft terrace',alt:'Illustrative penthouse apartment and terrace layout; not an approved project drawing'}};
+  let current='one';const plan=document.getElementById('plan-drawing');
+  document.querySelectorAll('.home-tab').forEach(button=>button.addEventListener('click',()=>{current=button.dataset.home;const h=homes[current];document.querySelectorAll('.home-tab').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});document.getElementById('home-name').textContent=h.title;document.getElementById('home-kicker').textContent=h.kicker;document.getElementById('home-description').textContent=h.description;document.getElementById('home-config').textContent=h.config;document.getElementById('home-area').textContent=h.area;plan.src=`plan-${current}.svg`;plan.alt=h.alt;document.querySelector('.home-enquiry').dataset.enquiry=h.title;if(!matchMedia('(prefers-reduced-motion:reduce)').matches)plan.animate([{opacity:.35,transform:'translateY(6px)'},{opacity:1,transform:'none'}],{duration:220,easing:'ease-out'});}));
+  document.querySelectorAll('[data-enquiry]').forEach(link=>link.addEventListener('click',()=>{document.getElementById('selected-home').textContent=`Interested in: ${link.dataset.enquiry}`;}));
+  const dialog=document.getElementById('media-dialog'),image=document.getElementById('dialog-image'),title=document.getElementById('dialog-title'),note=document.getElementById('dialog-note');
+  function showImage(src,alt,heading,caption){image.src=src;image.alt=alt;title.textContent=heading;note.textContent=caption;dialog.showModal();}
+  document.getElementById('expand-plan').addEventListener('click',()=>showImage(plan.src,plan.alt,homes[current].title,'Illustrative demo plan · Not to scale · Not an approved project drawing.'));
+  document.querySelectorAll('[data-photo]').forEach(b=>b.addEventListener('click',()=>showImage(b.dataset.photo,b.querySelector('img').alt,'From the project film',b.dataset.caption)));
+  document.getElementById('close-dialog').addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+  document.getElementById('year').textContent=new Date().getFullYear();
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)document.getElementById('project-video').pause();});
+})();
