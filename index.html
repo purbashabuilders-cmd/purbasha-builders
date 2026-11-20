@@ -551,71 +551,7 @@
               Receive verified floor blueprints, price quotation, and project payment schedule.
             </p>
 </div>
-<!-- SUCCESS STATE ALERT -->
-<div class="hidden p-3.5 rounded bg-emerald-950/70 border border-emerald-500/50 text-emerald-200 flex items-start gap-2.5 text-body-sm" id="form-success-box">
-<span class="material-symbols-outlined text-emerald-400 text-[22px] flex-shrink-0">check_circle</span>
-<div class="flex flex-col gap-0.5">
-<strong class="font-title-sm text-title-sm text-white">Complete your enquiry by email</strong>
-<span class="text-[13px] text-emerald-100">Your email app will open with your enquiry. Press Send there to deliver it. If it does not open, email purbashabuilders@gmail.com.</span>
-</div>
-</div>
-<!-- ERROR STATE ALERT -->
-<div class="hidden p-3 rounded bg-rose-950/70 border border-rose-500/50 text-rose-200 flex items-start gap-2 text-body-sm" id="form-error-box">
-<span class="material-symbols-outlined text-rose-400 text-[20px] flex-shrink-0">error</span>
-<span class="text-[13px]" id="form-error-text">Please check the highlighted fields below.</span>
-</div>
-<!-- INLINE FORM: 3 FIELDS -->
-<form class="flex flex-col gap-3.5" id="lead-form" novalidate="" onsubmit="handleFormSubmission(event)">
-<!-- Field 1: Name -->
-<div class="flex flex-col gap-1">
-<label class="font-label-spec text-label-spec theme-subtext text-on-surface font-semibold" for="lead-name">
-                Full Name <span class="theme-accent-gold text-primary">*</span>
-</label>
-<div class="theme-input w-full min-h-[48px] px-3.5 rounded bg-surface-container-high border border-surface-container-highest flex items-center gap-2 focus-within:ring-2 focus-within:ring-primary">
-<span class="material-symbols-outlined theme-muted text-outline text-[20px]">person</span>
-<input class="w-full bg-transparent theme-heading text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none" id="lead-name" placeholder="Enter your full name" required="" type="text"/>
-</div>
-<span class="hidden text-rose-400 font-body-sm text-[11px]" id="name-validation-msg">Please enter your name.</span>
-</div>
-<!-- Field 2: Mobile Number -->
-<div class="flex flex-col gap-1">
-<label class="font-label-spec text-label-spec theme-subtext text-on-surface font-semibold" for="lead-phone">
-                Mobile Number (+91) <span class="theme-accent-gold text-primary">*</span>
-</label>
-<div class="theme-input w-full min-h-[48px] px-3.5 rounded bg-surface-container-high border border-surface-container-highest flex items-center gap-2 focus-within:ring-2 focus-within:ring-primary">
-<span class="font-title-sm text-title-sm theme-accent-gold text-primary font-bold">+91</span>
-<input class="w-full bg-transparent theme-heading text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none" id="lead-phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" required="" type="tel"/>
-</div>
-<span class="hidden text-rose-400 font-body-sm text-[11px]" id="phone-validation-msg">Please enter a valid 10-digit mobile number.</span>
-</div>
-<!-- Field 3: Preferred Unit -->
-<div class="flex flex-col gap-1">
-<label class="font-label-spec text-label-spec theme-subtext text-on-surface font-semibold" for="lead-unit">
-                Preferred Unit
-              </label>
-<div class="theme-input relative w-full min-h-[48px] px-3.5 rounded bg-surface-container-high border border-surface-container-highest flex items-center">
-<select class="w-full bg-transparent theme-heading text-on-surface font-body-md text-body-md appearance-none focus:outline-none pr-8 cursor-pointer" id="lead-unit">
-<option class="bg-[#1c2025] text-white" value="General">All Configurations / General</option>
-<option class="bg-[#1c2025] text-white" value="1 BHK">1 BHK (684 sq ft · 3 units available)</option>
-<option class="bg-[#1c2025] text-white" value="2 BHK">2 BHK (868 sq ft · 2 units available)</option>
-<option class="bg-[#1c2025] text-white" value="3 BHK">3 BHK (1,212 sq ft · 1 unit available)</option>
-<option class="bg-[#1c2025] text-white" value="Penthouse">Penthouse (1,209 sq ft + 868 sq ft terrace)</option>
-</select>
-<span class="material-symbols-outlined theme-muted text-outline text-[22px] absolute right-3 pointer-events-none">expand_more</span>
-</div>
-</div>
-<!-- Submit Button (Min 48px touch target) -->
-<button class="theme-btn-primary w-full min-h-[48px] mt-1 rounded bg-primary text-on-primary font-title-sm text-title-sm font-bold flex items-center justify-center gap-2 shadow-md active:scale-[0.99] transition-all" id="form-submit-btn" type="submit">
-<span class="material-symbols-outlined text-[19px]" id="submit-icon">send</span>
-<span id="submit-btn-text">Request Price &amp; Floor Plans</span>
-</button>
-<!-- Office note (clean & devoid of unverified claims) -->
-<div class="pt-1 text-center">
-<p class="font-body-sm text-[12px] theme-subtext text-on-surface-variant">
-                This opens your email app. Send the prepared email to complete your enquiry.
-              </p>
-</div>
-</form>
+<div class="flex flex-col gap-4"><p class="font-body-md text-body-md theme-subtext text-on-surface-variant">Send your enquiry securely using our Google Form. Your responses will be recorded when you submit the form.</p><a class="theme-btn-primary w-full min-h-[48px] rounded bg-primary text-on-primary font-title-sm text-title-sm flex items-center justify-center font-bold" href="https://docs.google.com/forms/d/e/1FAIpQLScRhNUB13e_4nQNn_MaEwdoog1XY0aLwHJu5fmzb7iHIYMonw/viewform" target="_blank" rel="noopener noreferrer">Open Enquiry Form</a></div>
 </div>
 </section>
 <!-- 6. DELIVERED PROJECTS IN ASANSOL & UPCOMING PHASE 2 -->
@@ -889,55 +825,6 @@
       }
     }
 
-    // 5. FORM VALIDATION, ERROR & SUBMISSION STATES
-    function handleFormSubmission(event) {
-      event.preventDefault();
-      const nameInput = document.getElementById('lead-name');
-      const phoneInput = document.getElementById('lead-phone');
-      const nameMsg = document.getElementById('name-validation-msg');
-      const phoneMsg = document.getElementById('phone-validation-msg');
-      const errorBox = document.getElementById('form-error-box');
-      const successBox = document.getElementById('form-success-box');
-      const submitBtn = document.getElementById('form-submit-btn');
-      const submitIcon = document.getElementById('submit-icon');
-      const submitText = document.getElementById('submit-btn-text');
-
-      const nameVal = nameInput.value.trim();
-      const rawPhone = phoneInput.value.trim().replace(/\D/g, '');
-
-      let hasError = false;
-
-      // Validate Name
-      if (nameVal.length < 2) {
-        nameMsg.classList.remove('hidden');
-        hasError = true;
-      } else {
-        nameMsg.classList.add('hidden');
-      }
-
-      // Validate Phone (10 digits)
-      if (rawPhone.length !== 10) {
-        phoneMsg.classList.remove('hidden');
-        hasError = true;
-      } else {
-        phoneMsg.classList.add('hidden');
-      }
-
-      if (hasError) {
-        errorBox.classList.remove('hidden');
-        successBox.classList.add('hidden');
-        return;
-      }
-
-      // Clear previous error
-      errorBox.classList.add('hidden');
-
-      const unit = document.getElementById('lead-unit').value;
-      const subject = document.getElementById('submit-btn-text').innerText;
-      const body = 'Name: ' + nameVal + '\nMobile: +91 ' + rawPhone + '\nPreferred unit: ' + unit + '\nRequest: ' + subject;
-      window.location.href = 'mailto:purbashabuilders@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      successBox.classList.remove('hidden');
-    }
     // Initialize Theme on Load
     document.addEventListener('DOMContentLoaded', () => {
       initTheme();
