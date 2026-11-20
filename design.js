@@ -18,5 +18,4 @@
   document.getElementById('close-dialog').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
   document.getElementById('year').textContent=new Date().getFullYear();
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)document.getElementById('project-video').pause();});
 })();
