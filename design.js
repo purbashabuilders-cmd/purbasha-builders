@@ -1,9 +1,6 @@
 (() => {
   'use strict';
-  const root=document.documentElement, theme=document.querySelector('.theme-switch');
-  function setTheme(value){root.dataset.theme=value;theme.setAttribute('aria-label',`Switch to ${value==='dark'?'light':'dark'} theme`);try{localStorage.setItem('purbasha-theme-v2',value);}catch{}}
-  try { setTheme(localStorage.getItem('purbasha-theme-v2')||'light'); } catch { setTheme('light'); }
-  theme.addEventListener('click',()=>setTheme(root.dataset.theme==='dark'?'light':'dark'));
+  const root=document.documentElement; root.dataset.theme="light";
   const menu=document.querySelector('.mobile-menu'),toggle=document.querySelector('.menu-toggle');
   function closeMenu(){menu.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');}
   toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';menu.hidden=!open;toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');});
