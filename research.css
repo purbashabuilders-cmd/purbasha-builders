@@ -46,3 +46,17 @@ html{--paper:#fafafa;--panel:#efefed;--white:#fff;--ink:#202020;--muted:#575757;
 .phase-two-date strong{display:block;margin-top:14px;font:500 clamp(58px,7vw,96px)/.83 'Barlow Condensed',sans-serif;color:#202020}
 @media(max-width:800px){.phase-two{grid-template-columns:1fr}.phase-two-date{justify-self:start;width:auto;padding:20px 24px}}
 @media(max-width:800px){.hero-film-content #hero-title{font-size:clamp(42px,10vw,72px)!important}.hero-film-content .hero-project-name{font-size:14px;margin-top:8px}.map-heading,.nearby-grid{grid-template-columns:1fr;gap:28px}.map-frame,.map-frame iframe{min-height:310px;height:310px}.nearby-grid{margin-top:38px}.nearby-grid section>a{align-items:flex-start;flex-direction:column;gap:6px}.nearby-grid section>a span{text-align:left}}
+.enquiry-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 14px;margin:24px 0 18px;max-width:760px}
+.enquiry-form>label{display:grid;align-content:start;gap:7px;color:#fff;font-size:12px;line-height:1.4}
+.enquiry-form input:not([type=checkbox]),.enquiry-form select,.enquiry-form textarea{width:100%;min-height:48px;border:1px solid #ffffff70;border-radius:0;background:#fff;color:#202020;padding:12px 13px;font:400 14px 'DM Sans',sans-serif}
+.enquiry-form textarea{resize:vertical;min-height:96px}
+.enquiry-form input::placeholder{color:#666}
+.enquiry-form :focus-visible{outline:2px solid #fff;outline-offset:3px}
+.enquiry-form .consent-check{grid-column:1/-1;display:flex;align-items:flex-start;gap:10px;max-width:60ch;color:#f4e4e0;font-size:12px}
+.enquiry-form .consent-check input{width:18px;height:18px;margin:1px 0 0;accent-color:#fff;flex:0 0 auto}
+.enquiry-form .btn{grid-column:1/-1;justify-self:start;min-width:210px;border:0;cursor:pointer}
+.enquiry-form .btn:disabled{opacity:.7;cursor:wait}
+.enquiry-form .form-note{grid-column:1/-1;max-width:62ch;margin:0;color:#f4e4e0;font-size:11px;line-height:1.65}
+.form-trap{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.form-response-frame{position:absolute;width:1px;height:1px;left:-10000px;border:0}
+@media(max-width:800px){.enquiry-form{grid-template-columns:1fr;gap:14px;margin-top:20px}.enquiry-form .consent-check,.enquiry-form .btn,.enquiry-form .form-note{grid-column:1}.enquiry-form .btn{width:100%}}
