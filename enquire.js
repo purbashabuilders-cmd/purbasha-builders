@@ -19,7 +19,7 @@
   });
 
   window.addEventListener('message', event => {
-    if (!pending || event.source !== frame.contentWindow || event.data?.type !== 'purbasha-enquiry-result') return;
+    if (!pending || !/^https:\/\/[a-z0-9-]+\.googleusercontent\.com$/.test(event.origin) || event.data?.type !== 'purbasha-enquiry-result') return;
     clearTimeout(timeout);
     pending = false;
     button.disabled = false;
